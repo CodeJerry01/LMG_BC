@@ -1,0 +1,64 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "PlatformIO: Build ESP32-S3",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\platformio.exe",
+      "args": [
+        "run",
+        "--environment",
+        "esp32-s3-n16r8"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PLATFORMIO_CORE_DIR": "${workspaceFolder}\\.platformio-core"
+        }
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "detail": "Compile the ESP32-S3 N16R8 firmware with PlatformIO"
+    },
+    {
+      "label": "PlatformIO: Upload ESP32-S3",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\platformio.exe",
+      "args": [
+        "run",
+        "--environment",
+        "esp32-s3-n16r8",
+        "--target",
+        "upload"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PLATFORMIO_CORE_DIR": "${workspaceFolder}\\.platformio-core"
+        }
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "detail": "Compile and upload to the connected ESP32-S3"
+    },
+    {
+      "label": "Host: Start Camera Capture UI",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": [
+        "${workspaceFolder}\\host\\capture_ui.py"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "detail": "Open the UART diagnostics and camera preview utility"
+    }
+  ]
+}

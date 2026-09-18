@@ -1,0 +1,10 @@
+.pio/
+.platformio-core/
+.venv/
+__pycache__/
+captures/
+logs/
+build/
+dist/
+*.spec
+*.pyc
